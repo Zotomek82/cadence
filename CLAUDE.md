@@ -18,7 +18,8 @@ Web app de gestion du temps (quotidien + long terme) pour un utilisateur unique,
 - **Supabase** : projet `https://chrrsaiormcequegrrrm.supabase.co`, clé publishable dans index.html (publique par design). Schéma dans [supabase-setup.sql](supabase-setup.sql) — **l'utilisateur doit encore l'exécuter dans SQL Editor** (vérifier avant de supposer que les tables existent).
 - **Architecture de stockage** : localStorage = source d'affichage et cache offline (`cadence-tasks`, `cadence-profile`) ; écritures mises en file dans `cadence-outbox` puis poussées vers Supabase (tables `tasks`, `profile`, RLS par user_id) ; pull au login/focus/online, last-write-wins ; premier login avec données locales → seed du cloud. Pas de realtime (polling au focus suffit pour un utilisateur).
 - **Auth** : email + mot de passe Supabase (le formulaire tente signIn puis signUp ; confirmation email requise au premier signup). Dialogue accessible via le chip « activer la synchro » dans le header. L'app marche sans compte (mode local).
-- **Reste à faire** : exécuter le SQL (utilisateur) → créer le compte dans l'app → héberger (GitHub Pages ou Netlify, non tranché) → installer sur l'écran d'accueil iPhone → notifications push (iOS exige l'installation écran d'accueil ; service worker `push` à ajouter plus tard).
+- **HÉBERGÉ** (12/10/2026) : https://zotomek82.github.io/cadence/ — dépôt public GitHub `Zotomek82/cadence` (compte GitHub : Zotomek82), Pages branche main. Déploiement = simple `git push`.
+- **Reste à faire** : exécuter supabase-setup.sql dans SQL Editor (utilisateur — vérifier si fait) → créer le compte dans l'app (chip « activer la synchro ») → installer sur l'écran d'accueil iPhone → notifications push (iOS exige l'installation écran d'accueil ; service worker `push` + backend d'envoi à ajouter plus tard).
 - Test local : `python3 -m http.server 8787 -d ~/cadence` (launch.json côté session orgatime).
 
 ## Modèle de données
