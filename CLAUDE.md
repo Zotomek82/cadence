@@ -19,7 +19,8 @@ Web app de gestion du temps (quotidien + long terme) pour un utilisateur unique,
 - **Architecture de stockage** : localStorage = source d'affichage et cache offline (`cadence-tasks`, `cadence-profile`) ; écritures mises en file dans `cadence-outbox` puis poussées vers Supabase (tables `tasks`, `profile`, RLS par user_id) ; pull au login/focus/online, last-write-wins ; premier login avec données locales → seed du cloud. Pas de realtime (polling au focus suffit pour un utilisateur).
 - **Auth** : email + mot de passe Supabase (le formulaire tente signIn puis signUp ; confirmation email requise au premier signup). Dialogue accessible via le chip « activer la synchro » dans le header. L'app marche sans compte (mode local).
 - **HÉBERGÉ** (12/10/2026) : https://zotomek82.github.io/cadence/ — dépôt public GitHub `Zotomek82/cadence` (compte GitHub : Zotomek82), Pages branche main. Déploiement = simple `git push`.
-- **Reste à faire** : exécuter supabase-setup.sql dans SQL Editor (utilisateur — vérifier si fait) → créer le compte dans l'app (chip « activer la synchro ») → installer sur l'écran d'accueil iPhone → notifications push (iOS exige l'installation écran d'accueil ; service worker `push` + backend d'envoi à ajouter plus tard).
+- **MIGRATION TERMINÉE** (12/10/2026) : SQL exécuté, tables `tasks`/`profile` en place (RLS vérifiée), compte créé, synchro confirmée « ☁ synchronisé » par l'utilisateur.
+- **Chantier suivant (non commencé)** : notifications push de RDV. Sur iOS : exige l'app installée sur l'écran d'accueil (fait) + service worker `push` + clés VAPID + un déclencheur serveur à l'heure du RDV (piste : Supabase Edge Function + pg_cron, ou routine Claude planifiée en brief matinal).
 - Test local : `python3 -m http.server 8787 -d ~/cadence` (launch.json côté session orgatime).
 
 ## Modèle de données
