@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "push-notification-setup": {
+      "source": "secondsky/claude-skills",
+      "sourceType": "github",
+      "skillPath": "plugins/push-notification-setup/skills/push-notification-setup/SKILL.md",
+      "computedHash": "ec2e9d40f0a50f47778506e33b3ec042f0910e0ef2ada62de25a4366e0e78774"
+    }
+  }
+}

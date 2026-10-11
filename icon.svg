@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#2F6B4F"/>
+  <!-- rhythm bars: a visual "cadence" -->
+  <g>
+    <rect x="128" y="236" width="60" height="140" rx="30" fill="#E8F0EC"/>
+    <rect x="226" y="166" width="60" height="210" rx="30" fill="#FFFFFF"/>
+    <rect x="324" y="106" width="60" height="270" rx="30" fill="#D2A94F"/>
+  </g>
+</svg>
