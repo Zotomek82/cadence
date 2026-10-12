@@ -1,5 +1,5 @@
 /* Cadence service worker — app shell cache for offline use. */
-const CACHE = "cadence-v2";
+const CACHE = "cadence-v3";
 const CORE = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png"];
 
 self.addEventListener("install", e => {
